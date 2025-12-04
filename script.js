@@ -144,7 +144,9 @@ function formatEta(etaString) {
 async function loadEta(stopId) {
   etaContainer.innerHTML = '<p class="hint">載入中...</p>';
   try {
-    const data = await fetchJson(`${apiBase}/stop-eta/${stopId}/${currentRoute}/${selectedDirection.serviceType}`);
+    // 九巴官方 API 以 /eta/{stop_id}/{route}/{service_type} 為路徑，
+    // 舊版的 /stop-eta 會得到 422 錯誤。
+    const data = await fetchJson(`${apiBase}/eta/${stopId}/${currentRoute}/${selectedDirection.serviceType || 1}`);
     const etas = data.data || [];
     const template = document.getElementById('etaItemTemplate');
 
