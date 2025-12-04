@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KMB 巴士到站時間查詢</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand">KMB 巴士到站時間查詢</div>
+    <p class="tagline">輸入巴士號碼，查看沿線車站及預計到站時間</p>
+  </header>
+
+  <main class="layout">
+    <section class="search-card card">
+      <label for="routeInput" class="input-label">巴士號碼</label>
+      <div class="input-row">
+        <input id="routeInput" type="text" placeholder="例如：1A、68X" autocomplete="off" />
+        <button id="searchBtn" class="primary-btn">搜尋</button>
+      </div>
+      <p id="searchHint" class="hint">直接使用九巴開放數據 API，無需 API Key。</p>
+      <p id="errorMessage" class="error" role="alert"></p>
+    </section>
+
+    <section class="results">
+      <div class="tabs" id="directionTabs" aria-label="方向選擇"></div>
+      <div id="stopsContainer" class="card stops-card" aria-live="polite"></div>
+      <div id="etaContainer" class="card eta-card" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <template id="stopItemTemplate">
+    <button class="stop-item" type="button"></button>
+  </template>
+
+  <template id="etaItemTemplate">
+    <div class="eta-row">
+      <div class="eta-time"></div>
+      <div class="eta-remark"></div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
