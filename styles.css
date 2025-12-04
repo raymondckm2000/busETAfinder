@@ -1,0 +1,224 @@
+:root {
+  --bg: #f7f7f9;
+  --card-bg: #ffffff;
+  --primary: #c8102e;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --border: #e5e7eb;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #fef2f2, transparent 35%),
+    radial-gradient(circle at 80% 0%, #f3f4ff, transparent 35%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.tagline {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.layout {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.search-card {
+  display: grid;
+  gap: 8px;
+}
+
+.input-label {
+  font-weight: 600;
+}
+
+.input-row {
+  display: flex;
+  gap: 8px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 10px 20px rgba(200, 16, 46, 0.24);
+}
+
+.primary-btn:hover {
+  transform: translateY(-1px);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+.hint {
+  color: var(--muted);
+  margin: 0;
+}
+
+.error {
+  color: #b91c1c;
+  min-height: 20px;
+  margin: 0;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: white;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  font-weight: 600;
+}
+
+.tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.stops-card,
+.eta-card {
+  margin-top: 12px;
+}
+
+.stop-item {
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stop-item:hover,
+.stop-item:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  outline: none;
+}
+
+.stop-index {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.stop-name {
+  font-weight: 600;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #92400e;
+  font-size: 0.85rem;
+}
+
+.eta-card h3 {
+  margin-top: 0;
+}
+
+.eta-empty {
+  color: var(--muted);
+}
+
+.eta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.eta-row:last-child {
+  border-bottom: none;
+}
+
+.eta-time {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.eta-remark {
+  color: var(--muted);
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 16px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .primary-btn {
+    width: 100%;
+  }
+
+  .stop-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
